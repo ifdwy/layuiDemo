@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>layui-table模块</title>
+  <link rel="stylesheet" href="../../css/layui.css">
+
+<style type="text/css">
+    .weba{
+      width: 89rem;
+      height: 1px;
+      background: red;
+      margin-left: -100rem;
+      margin-top: 19px;
+      z-index: 9999;
+      display: inline-block;
+     }
+</style>
+</head>
+<body>
+ 
+<table id="tab1" lay-filter="tab1"></table>
+
+<script type="text/html" id="toolbarDemo">
+  <div class="layui-btn-container">
+    <button class="layui-btn layui-btn-sm" lay-event="addBtn">添加</button>
+  </div>
+</script>
+
+<script type="text/html" id="tableBar">
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="delete" id="delete">删除</a>
+</script>
+
+<script type="text/html" id="isAssignTpl">
+  <input type="checkbox" name="isAssign" value="{{d.isAssign}}" lay-skin="switch" lay-text="是|否" lay-filter="isAssign" {{ d.isAssign == 1 ? 'checked' : '' }}>
+</script>
+
+<script src="../../layui.js"></script>
+<script src="../../js/common.js"></script>
+<script src="../../js/list01/list01.js"></script>
+<script src="../../js/list01/list01_data.js"></script>
+</body>
+</html>

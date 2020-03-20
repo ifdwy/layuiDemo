@@ -1,0 +1,9 @@
+.draw{
+    position: absolute;
+    top:50%;
+    right: 0;
+}
+
+.layui-icon-shrink-right:hover, .layui-icon-spread-left:hover{
+    color: red;
+}

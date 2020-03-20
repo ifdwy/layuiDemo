@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>Layui 后台布局</title>
+  <link rel="stylesheet" href="../layui/css/layui.css">
+  <link rel="stylesheet" href="../layui/css/index.css">
+
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+  <div class="layui-header">
+    <div class="layui-logo">layui 后台布局</div>
+    <!-- 头部区域（可配合layui已有的水平导航） -->
+    <ul class="layui-nav layui-layout-right">
+      <li class="layui-nav-item">
+        <a href="javascript:;">
+          <img src="" class="layui-nav-img">
+          ifdw
+        </a>
+        <dl class="layui-nav-child">
+          <dd><a href="">基本资料</a></dd>
+          <dd><a href="">安全设置</a></dd>
+        </dl>
+      </li>
+      <li class="layui-nav-item"><a href="">退出</a></li>
+    </ul>
+  </div>
+  
+  <div class="layui-side layui-bg-black">
+    <div class="layui-side-scroll">
+      <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+      <ul class="layui-nav layui-nav-tree" lay-filter="test">
+        <li class="layui-nav-item layui-nav-itemed draw1">
+          <a class="" href="javascript:;"><i class="layui-icon layui-icon-face-smile" style="color: #1E9FFF;"></i> <span>所有商品</span></a>
+            <dl class="layui-nav-child">
+            <dd><a href="javascript:;" data-id="1" data-title="列表一" data-url="../layui/pages/list01/list01.html" class="site-demo-active" data-type="tabAdd"><span>列表一</span></a></dd>
+            
+            <dd><a href="javascript:;" data-id="2" data-title="列表二" data-url="../layui/pages/list02/list02.html" class="site-demo-active" data-type="tabAdd"><span>列表二</span></a></dd>
+
+            <dd><a href="javascript:;" data-id="3" data-title="列表三" data-url="http://www.baidu.com" class="site-demo-active" data-type="tabAdd"><span>列表三</span></a></dd>
+            
+            <dd><a href="javascript:;" data-id="4" data-title="列表四" data-url="http://www.baidu.com" class="site-demo-active" data-type="tabAdd"><span>列表四</span></a></dd>
+
+          </dl>
+        </li>
+        
+        <li class="layui-nav-item draw1">
+          <a href="javascript:;" data-id="3" data-title="云市场" data-url="http://www.baidu.com" class="site-demo-active" data-type="tabAdd"><i class="layui-icon layui-icon-face-smile" style="color: #1E9FFF;"></i> <span>云市场</span></a>
+        </li>
+        
+        <li class="layui-nav-item draw1"><a href="javascript:;" data-id="4" data-title="发布商品" data-url="../layui/list04.html" class="site-demo-active" data-type="tabAdd"><i class="layui-icon layui-icon-senior" style="color: #1E9FFF;"></i><span>发布商品</span></a></li>
+      </ul>
+    </div>
+
+    <div title="菜单缩放" class="draw kit-side-fold">
+      <i class="layui-icon layui-icon-shrink-right" style="cursor: pointer;"></i>
+      <i class="layui-icon layui-icon-spread-left" id="left" style="display: none;"></i>
+    </div>
+  
+
+  </div>
+  
+ 
+    <!-- 内容主体区域 -->
+    <div class="layui-tab" lay-filter="demo" lay-allowclose="true" style="margin-left: 200px;">
+        <ul class="layui-tab-title"></ul>
+        <div class="layui-tab-content"></div>
+    </div>
+
+ 
+  
+  <div class="layui-footer">
+    <!-- 底部固定区域 -->
+    <p style="padding-left:38%;">版权所有 © XXXXXXXX有限公司 @ V2.0|(所属机构：xxxxxxxxx)</p>
+  </div>
+
+</div>
+<script src="../layui/layui.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>
