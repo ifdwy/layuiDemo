@@ -21,6 +21,7 @@ layui.use(['element', 'table', 'jquery', 'form', 'layer'], function(){
 	    height: 'full-200',
 	    data: data,
 	    page: true,
+	    toolbar: '#toolbarDemo',
 	    cols:[[
             {type: 'checkbox'},
 			{field: 'reId', hide: true, title: '关联ID'},   
@@ -37,59 +38,44 @@ layui.use(['element', 'table', 'jquery', 'form', 'layer'], function(){
 
   	});
 
-	table.on('tool(fillBackTab)',  function(obj){
+  	//	将值渲染回父页面
+  	let fillBack = (data)=>{
+  		let parentData = parent.layui.table.cache.list02Tab;
+  		let d =[];// 有多个值传给父页面
+		for(let [index, item] of parentData.entries()){
+			if (index == getUrlParam("rowIndex")) {
+				for(let val of data.values()){
+					d.push(val.pkeyTabPV);
+					item.pkeyTabPV = d;
+				}
+				item.pkeyTabPV = d;
+			}
+		}
+		//	重新渲染父页面的表格
+		parent.tab.reload({data:parentData});
+
+		//关闭弹窗
+		var index = parent.layer.getFrameIndex(window.name);
+		parent.layer.close(index);
+  	}
+
+	table.on('tool(fillBackTab)',  (obj)=>{
 		let data = obj.data;
 		let event = obj.event;
-
+		// 单条选择
 		if (event === 'select') {
-			let parentData = parent.layui.table.cache.list02Tab;
-			for(let [index, item] of parentData.entries()){
-				if (index == getUrlParam("rowIndex")) {
-					item.pkeyTabPV = data.pkeyTabPV;
-				}
-			}
-			//	重新渲染父页面的表格
-			parent.tab.reload({data:parentData});
-
-			//关闭弹窗
-		    var index = parent.layer.getFrameIndex(window.name);
-		    parent.layer.close(index);
+			fillBack([data]);
 		}
-	})
-
-	// 监听多选
-	table.on('checkbox(fillBackTab)', function(obj){
-		// console.log(obj.checked); //当前是否选中状态
-	 //  	console.log(obj.data); //选中行的相关数据
-	 //  	console.log(obj.type); //如果触发的是全选，则为：all，如果触发的是单选，则为：one
-	  	
-	  	let data = obj.data;
-	  	let type = obj.type;
-	  	let arr =[];
-	  	if (obj.checked) {
-		  	if (type == 'one') {
-		  		arr.push(obj.data.pkeyTabPV)
-		  	}else{
-		  		if (arr.length !=0) {
-		  			arr =[];
-		  		}
-		  		let tabData = fillBackTab.config.data;
-		  		for(let item of tabData.values()){
-		  			arr.push(item.pkeyTabPV)
-		  		}
-		  	}
-	  	}else{
-	  		//TODO: 取消选中的时候,要去掉数组里面相对应的数据
-	  	}
-	  	console.log("arr=============>", arr)
-
-
-
-
-
 	});
 
-
+  	//头工具栏事件(批量选择提交)
+	table.on('toolbar(fillBackTab)', (obj)=>{
+	    if (obj.event == 'batchBtn') {// 批量提交
+	    	let checkStatus = table.checkStatus('fillBackTab');
+	    	let data = checkStatus.data;
+	    	fillBack(data);
+	    }
+	});
 
 
 

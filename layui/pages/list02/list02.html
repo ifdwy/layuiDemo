@@ -4,13 +4,44 @@
   <meta charset="utf-8">
   <title>列表二界面</title>
   <link rel="stylesheet" href="../../css/layui.css">
+  <style type="text/css">
+    #tabSelect{
+      width: 100%;
+      height: 38px;
+      border: 1px solid #dcdada;
+      line-height: 38px;
+      padding-left: 10px;
+    }
+    .selIcon{
+      float: right;
+      margin-right: 10px;
+      font-size: 15px;
+    }
+    .dCheckBox{
+      margin-top: 40px;
+      position: absolute;
+      width: 193px;
+      border: 1px solid #d2d0d0;
+      left: 15px;
+      z-index: 999;
+      background-color: #fdfcfc;
+    }
+
+    .layui-form-checkbox[lay-skin=primary] span {
+        padding-left: 35px;
+    }
+
+    .layui-table-view .layui-form-checkbox[lay-skin=primary] i {
+        margin-left: 10px;
+    }
+  </style>
 </head>
 <body>
  
 <table id="list02Tab" lay-filter="list02Tab"></table>
 
 <script type="text/html" id="tableBar">
-    <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="edit">修改</a>
+    <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="add">添加</a>
     <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="delete">删除</a>
     <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="webFieldSetP">页面设置</a>
 </script>
@@ -21,6 +52,10 @@
 
 <script type="text/html" id="Dict_EXC_itIsdict">
     <input type="checkbox" lay-filter="addSwitch" value="{{d.reId}}" lay-skin="switch" lay-text="是|否" {{d.itIsdict=='1'?'checked':''}} />
+</script>
+
+<script type="text/html" id="batchSelect">
+    <div id="tabSelect"><span class="layui-elip" style="width: 140px; float: left;">{{d.updateUserDictName}}</span><i class="layui-icon layui-icon-down selIcon" id="icon{{d.gctabId}}"></i></div>
 </script>
              
 <script src="../../layui.js"></script>

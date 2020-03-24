@@ -13,7 +13,7 @@ var data =[
 		metadataId: 1,
 		itIskey: 1,
 		gctabId: 0,
-		updateUserDictName: "管理员",
+		updateUserDictName: ["管理员"],
 		reId: 1,
 		gctabCd: "c_dev_gctabs",
 		itIslf: 1,
@@ -21,7 +21,7 @@ var data =[
 		itIsbean: 1,
 		itIsdict: 0,
 		itIsaf: 1,
-		updateUser: 1,
+		updateUser: [0],
 		dataLock: 0,
 		updateTime: "2019-08-27 10:07:46",
 		sort: 1,
@@ -65,6 +65,8 @@ var data =[
 		itIsextra: 0,
 		pkeyTab: "systabs",
 		pkeyDfReturn: "gctabCd-gctabCd,gctabNa-gctabNa,schemaDb-schemaDb,bizNa-gctabNa,gctabCdPV-gctabCd",
+		updateUserDictName: ["管理员1", "管理员2"],
+		updateUser: [1,2],
 	}
 ];
 
@@ -73,4 +75,11 @@ var dict=[
 	{code: "1", name: "流程步骤视图"},
 	{code: "2", name: "自定义查询视图"},
 	{code: "3", name: "APP视图"},
+]
+
+var userDict=[
+	{code: 0, name: "管理员"},
+	{code: 1, name: "管理员1"},
+	{code: 2, name: "管理员2"},
+	{code: 3, name: "管理员3"},
 ]

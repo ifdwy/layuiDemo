@@ -16,8 +16,21 @@
   	var epotOption =(dict) =>{
     	let option;
 		for( let item of dict.values()){
-			option = option + '<option value='+ item.code +'>' + item.name + '</option>\n' 
+			option = option + '<option value='+ item.code +'>' + item.name + '</option>\n';
 		}
+		return option;
+    };
+
+	// 返回多选下拉框选项
+  	var epotCheckBoxOption =(dict, checkedId) =>{
+  		let option='';
+  		for(let item of dict.values()){
+  			if (checkedId.includes(item.code)) {
+  				option += '<div><input type="checkbox" name="'+item.code+'" title="'+item.name+'" lay-skin="primary" checked></div>';
+  			}else{
+  				option += '<div><input type="checkbox" name="'+item.code+'" title="'+item.name+'" lay-skin="primary"></div>';
+  			}
+  		}
 		return option;
     };
 

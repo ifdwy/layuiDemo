@@ -2,25 +2,42 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>列表一添加界面</title>
-  <link rel="stylesheet" href="../layui/css/layui.css">
+  <title>列表二添加界面</title>
+  <link rel="stylesheet" href="../../css/layui.css">
+
+	<style type="text/css">
+		.titleName{
+			margin: 20px auto 0 20px;
+		    font-size: 15px;
+		    letter-spacing: 1px;
+		}
+
+		.titleName>button{
+			margin-left: 10px;
+    		margin-top: -5px;
+		}
+	</style>
 
 </head>
 <body>
- 
-<table id="tab1_add" lay-filter="tab1_add"></table>
+
+	<div>
+		<p class="titleName">人员表格 <button class="layui-btn layui-btn-xs layui-btn-normal" id="userAddBtn">添加</button></p>
+	</div>
+	<table id="userTable" lay-filter="userTable"></table>
 
 <script type="text/html" id="tableBar">
-    <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="add" id="add">添加</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="delete">删除</a>
 </script>
 
-<script type="text/html" id="isAssignTpl">
-  <input type="checkbox" name="isAssign" value="{{d.isAssign}}" lay-skin="switch" lay-text="是|否" lay-filter="isAssign" {{ d.isAssign == 1 ? 'checked' : '' }}>
+<script type="text/html" id="selectDict">
+    <select id="{{d.userType}}" name = "userType" lay-filter="selectFilter" data-value="{{d.userType}}" ><select>
 </script>
 
-<script src="../layui/layui.js"></script>
-<script src="js/list01/list01_add.js"></script>
-<script src="js/list01/list01_add_data.js"></script>
+<script src="../../layui.js"></script>
+<script src="../../js/common.js"></script>
+<script src="../../js/list02/list02_add.js"></script>
+<script src="../../js/list02/list02_addData.js"></script>
 
 </body>
 </html>
