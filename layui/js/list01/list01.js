@@ -1,12 +1,3 @@
-
-/***********
-storage: 只能存储字符串 eg:存 sessionStorage.setItem('newList', JSON.stringify(oldData)); 取: JSON.parse(sessionStorage.getItem('newList'))
-sessionStorage:在重启浏览器,关闭页面或新开页面时失效.
-localStorage: 永久存储,不过期,除非手动删除.
-
-Cookie:一般用于存取用户信息.
-**********/
-
 var tab1;// 执法人员表格对象
 layui.use(['element', 'table', 'jquery', 'form', 'layer'], function(){
   var element = layui.element;
